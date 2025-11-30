@@ -1,5 +1,5 @@
 # :rocket: Weathers Tech Portolio
-Technical project showcase covering advanced Data Analysis, ML modeling, and practical applications in IT, Active Directory (AD), and systems automation.
+Technical project showcase covering advanced Data Analysis, ML modeling, and practical applications in IT, and systems automation.
 
 This repository showcases projects integrating Data Engineering (Python/ML/Analysis) with IT Elements. Focused on building scalable solutions from source system to final insight.
 
