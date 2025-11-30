@@ -1,0 +1,3 @@
+Spam e-mail dataset. Dataset obtained from Kaggle. Dataset was uploaded by Abinesh and 1 Collaborator.  
+
+URL: https://www.kaggle.com/datasets/abineshpa/spam-email-dataset

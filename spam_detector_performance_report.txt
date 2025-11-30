@@ -1,0 +1,51 @@
+======================================================================
+XGBoost Spam Detector Performance Report (OPTIMIZED MODEL)
+======================================================================
+
+Best Parameters: {'colsample_bytree': 0.8, 'learning_rate': 0.1, 'max_depth': 8, 'n_estimators': 200, 'subsample': 0.9}
+Best CV F1 Score: 0.9566
+
+Test Set Accuracy: 0.9738
+
+Classification Report:
+              precision    recall  f1-score   support
+
+    Not Spam       1.00      0.97      0.98       872
+        Spam       0.91      0.99      0.95       274
+
+    accuracy                           0.97      1146
+   macro avg       0.95      0.98      0.97      1146
+weighted avg       0.98      0.97      0.97      1146
+
+
+Confusion Matrix:
+[[844  28]
+ [  2 272]]
+
+Key Metrics:
+Spam Recall: 99.27%
+Spam Precision: 90.67%
+
+
+Top 20 Important Features:
+          feature  importance
+        cluster_1    0.266194
+        cluster_0    0.212883
+      tfidf_vince    0.037109
+      tfidf_enron    0.036419
+      tfidf_model    0.015417
+       tfidf_date    0.009091
+exclamation_marks    0.007493
+    tfidf_meeting    0.007486
+        tfidf_pro    0.006942
+ tfidf_assistance    0.006634
+  tfidf_utilities    0.006407
+       tfidf_2000    0.006360
+   tfidf_research    0.006057
+      tfidf_kevin    0.006036
+    tfidf_dollars    0.005935
+   tfidf_attached    0.005849
+      tfidf_allow    0.005781
+     tfidf_energy    0.005522
+     tfidf_issues    0.005383
+   tfidf_february    0.005302
