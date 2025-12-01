@@ -6,12 +6,12 @@ This repository showcases projects integrating Data Engineering (Python/ML/Analy
 ## 📖 Table of Contents
 
 1. **🖥️IT & Systems Administration**
-   * Windows 10 Pro Local Admin and Hardening Project
+   * [Windows 10 Pro Local Admin and Hardening Project](https://github.com/addaweathers/weathers-tech-portfolio/tree/Windows-10-Pro-Local-Admin-and-Hardening-Project)
 
 2. **📊Data Analysis & Visualization**
-   * RapidMiner Decision Tree Project
+   * [RapidMiner Decision Tree Project](https://github.com/addaweathers/weathers-tech-portfolio/tree/RapidMiner-Decision-Tree)
 
 4. **🧠Machine Learning**
-   * Spam E-Mail Detector (XGBoost)
+   * [Spam E-Mail Detector Using XGBoost](https://github.com/addaweathers/weathers-tech-portfolio/tree/Spam-Email-Detector-XGBoost)
 
 
