@@ -5,10 +5,13 @@ This repository showcases projects integrating Data Engineering (Python/ML/Analy
 
 ## 📖 Table of Contents
 
-1. [IT & Systems Administration] (1. - Windows 10 Pro Local Admin and Hardening Project)
+1. **🖥️IT & Systems Administration**
+   * Windows 10 Pro Local Admin and Hardening Project
 
-2. [Data Analysis & Viz] (1. - RapidMiner Decision Tree)
+2. **📊Data Analysis & Visualization**
+   * RapidMiner Decision Tree Project
 
-3. [Machine Learning] (1. -  Spam E-Mail Detector XGBoost)
+4. **🧠Machine Learning**
+   * Spam E-Mail Detector (XGBoost)
 
 
