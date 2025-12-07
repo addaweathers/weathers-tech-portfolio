@@ -1,0 +1,18 @@
+"""
+About This Folder
+
+This folder consists of screenshots and SQL scripts used in my attempt at creating a random forest and linear regression model to predict diabetes. 
+
+Dataset used: https://archive.ics.uci.edu/dataset/296/diabetes+130-us+hospitals+for+years+1999-2008
+
+The folder is structured as follows:
+
+A - Screenshots of SQL code ran in Ubuntu terminal. These are labeled Figure A, followed by the number, e.g. Figure A1.
+
+B - SQL scripting used to expedite certain processes. These are labeled Code B, followed by the number, e.g. Code B1.
+
+C - RapidMiner screenshots. These are labeled Figure C, followed by the number, e.g. Figure C1.
+
+Information about model failure and learning opportunities will be added to README file. 
+
+"""

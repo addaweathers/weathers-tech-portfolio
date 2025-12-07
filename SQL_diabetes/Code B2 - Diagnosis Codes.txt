@@ -1,0 +1,22 @@
+-- Diagnosis code check
+-- We are checking for roughly how many diabetes diagnoses there are
+-- ICD9 code for diabetes is 250 series
+-- ICD10, newer coding after this dataset was published, uses E08 - E13 for diabetes
+
+SELECT 
+    -- Count 250
+    COUNT(CASE WHEN diag_1 LIKE '250%' THEN 1 END) as diag_1_count_250,
+    COUNT(CASE WHEN diag_2 LIKE '250%' THEN 1 END) as diag_2_count_250,
+    COUNT(CASE WHEN diag_3 LIKE '250%' THEN 1 END) as diag_3_count_250,
+    
+    -- Count E08-E13
+    COUNT(CASE WHEN diag_1 LIKE 'E08%' OR diag_1 LIKE 'E09%' OR diag_1 LIKE 'E10%' 
+                  OR diag_1 LIKE 'E11%' OR diag_1 LIKE 'E12%' OR diag_1 LIKE 'E13%' 
+              THEN 1 END) as diag_1_has_E08_E13,
+    COUNT(CASE WHEN diag_2 LIKE 'E08%' OR diag_2 LIKE 'E09%' OR diag_2 LIKE 'E10%' 
+                  OR diag_2 LIKE 'E11%' OR diag_2 LIKE 'E12%' OR diag_2 LIKE 'E13%' 
+              THEN 1 END) as diag_2_has_E08_E13,
+    COUNT(CASE WHEN diag_3 LIKE 'E08%' OR diag_3 LIKE 'E09%' OR diag_3 LIKE 'E10%' 
+                  OR diag_3 LIKE 'E11%' OR diag_3 LIKE 'E12%' OR diag_3 LIKE 'E13%' 
+              THEN 1 END) as diag_3_has_E08_E13
+FROM diabetes_working;

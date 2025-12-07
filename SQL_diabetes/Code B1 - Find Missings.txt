@@ -1,0 +1,123 @@
+-- THIS SCRIPT WAS WRITTEN WITH ASSISTANCE FROM CLAUDE DUE TO THE LARGE VOLUME OF COLUMNS
+
+-- Missing Values Analysis for diabetes_working table
+-- This script counts NULL, empty strings, and '?' values for each column
+
+.mode column
+.headers on
+
+SELECT 'Missing Values Summary' AS report_title;
+SELECT '';
+
+-- Count missing values for each column
+SELECT 
+    'encounter_id' AS column_name,
+    SUM(CASE WHEN encounter_id IS NULL OR encounter_id = '' OR encounter_id = '?' THEN 1 ELSE 0 END) AS missing_count,
+    COUNT(*) AS total_rows,
+    ROUND(100.0 * SUM(CASE WHEN encounter_id IS NULL OR encounter_id = '' OR encounter_id = '?' THEN 1 ELSE 0 END) / COUNT(*), 2) AS missing_percentage
+FROM diabetes_working
+UNION ALL
+SELECT 'patient_nbr', SUM(CASE WHEN patient_nbr IS NULL OR patient_nbr = '' OR patient_nbr = '?' THEN 1 ELSE 0 END), COUNT(*), ROUND(100.0 * SUM(CASE WHEN patient_nbr IS NULL OR patient_nbr = '' OR patient_nbr = '?' THEN 1 ELSE 0 END) / COUNT(*), 2) FROM diabetes_working
+UNION ALL
+SELECT 'race', SUM(CASE WHEN race IS NULL OR race = '' OR race = '?' THEN 1 ELSE 0 END), COUNT(*), ROUND(100.0 * SUM(CASE WHEN race IS NULL OR race = '' OR race = '?' THEN 1 ELSE 0 END) / COUNT(*), 2) FROM diabetes_working
+UNION ALL
+SELECT 'gender', SUM(CASE WHEN gender IS NULL OR gender = '' OR gender = '?' THEN 1 ELSE 0 END), COUNT(*), ROUND(100.0 * SUM(CASE WHEN gender IS NULL OR gender = '' OR gender = '?' THEN 1 ELSE 0 END) / COUNT(*), 2) FROM diabetes_working
+UNION ALL
+SELECT 'age', SUM(CASE WHEN age IS NULL OR age = '' OR age = '?' THEN 1 ELSE 0 END), COUNT(*), ROUND(100.0 * SUM(CASE WHEN age IS NULL OR age = '' OR age = '?' THEN 1 ELSE 0 END) / COUNT(*), 2) FROM diabetes_working
+UNION ALL
+SELECT 'weight', SUM(CASE WHEN weight IS NULL OR weight = '' OR weight = '?' THEN 1 ELSE 0 END), COUNT(*), ROUND(100.0 * SUM(CASE WHEN weight IS NULL OR weight = '' OR weight = '?' THEN 1 ELSE 0 END) / COUNT(*), 2) FROM diabetes_working
+UNION ALL
+SELECT 'admission_type_id', SUM(CASE WHEN admission_type_id IS NULL OR admission_type_id = '' OR admission_type_id = '?' THEN 1 ELSE 0 END), COUNT(*), ROUND(100.0 * SUM(CASE WHEN admission_type_id IS NULL OR admission_type_id = '' OR admission_type_id = '?' THEN 1 ELSE 0 END) / COUNT(*), 2) FROM diabetes_working
+UNION ALL
+SELECT 'discharge_disposition_id', SUM(CASE WHEN discharge_disposition_id IS NULL OR discharge_disposition_id = '' OR discharge_disposition_id = '?' THEN 1 ELSE 0 END), COUNT(*), ROUND(100.0 * SUM(CASE WHEN discharge_disposition_id IS NULL OR discharge_disposition_id = '' OR discharge_disposition_id = '?' THEN 1 ELSE 0 END) / COUNT(*), 2) FROM diabetes_working
+UNION ALL
+SELECT 'admission_source_id', SUM(CASE WHEN admission_source_id IS NULL OR admission_source_id = '' OR admission_source_id = '?' THEN 1 ELSE 0 END), COUNT(*), ROUND(100.0 * SUM(CASE WHEN admission_source_id IS NULL OR admission_source_id = '' OR admission_source_id = '?' THEN 1 ELSE 0 END) / COUNT(*), 2) FROM diabetes_working
+UNION ALL
+SELECT 'time_in_hospital', SUM(CASE WHEN time_in_hospital IS NULL OR time_in_hospital = '' OR time_in_hospital = '?' THEN 1 ELSE 0 END), COUNT(*), ROUND(100.0 * SUM(CASE WHEN time_in_hospital IS NULL OR time_in_hospital = '' OR time_in_hospital = '?' THEN 1 ELSE 0 END) / COUNT(*), 2) FROM diabetes_working
+UNION ALL
+SELECT 'payer_code', SUM(CASE WHEN payer_code IS NULL OR payer_code = '' OR payer_code = '?' THEN 1 ELSE 0 END), COUNT(*), ROUND(100.0 * SUM(CASE WHEN payer_code IS NULL OR payer_code = '' OR payer_code = '?' THEN 1 ELSE 0 END) / COUNT(*), 2) FROM diabetes_working
+UNION ALL
+SELECT 'medical_specialty', SUM(CASE WHEN medical_specialty IS NULL OR medical_specialty = '' OR medical_specialty = '?' THEN 1 ELSE 0 END), COUNT(*), ROUND(100.0 * SUM(CASE WHEN medical_specialty IS NULL OR medical_specialty = '' OR medical_specialty = '?' THEN 1 ELSE 0 END) / COUNT(*), 2) FROM diabetes_working
+UNION ALL
+SELECT 'num_lab_procedures', SUM(CASE WHEN num_lab_procedures IS NULL OR num_lab_procedures = '' OR num_lab_procedures = '?' THEN 1 ELSE 0 END), COUNT(*), ROUND(100.0 * SUM(CASE WHEN num_lab_procedures IS NULL OR num_lab_procedures = '' OR num_lab_procedures = '?' THEN 1 ELSE 0 END) / COUNT(*), 2) FROM diabetes_working
+UNION ALL
+SELECT 'num_procedures', SUM(CASE WHEN num_procedures IS NULL OR num_procedures = '' OR num_procedures = '?' THEN 1 ELSE 0 END), COUNT(*), ROUND(100.0 * SUM(CASE WHEN num_procedures IS NULL OR num_procedures = '' OR num_procedures = '?' THEN 1 ELSE 0 END) / COUNT(*), 2) FROM diabetes_working
+UNION ALL
+SELECT 'num_medications', SUM(CASE WHEN num_medications IS NULL OR num_medications = '' OR num_medications = '?' THEN 1 ELSE 0 END), COUNT(*), ROUND(100.0 * SUM(CASE WHEN num_medications IS NULL OR num_medications = '' OR num_medications = '?' THEN 1 ELSE 0 END) / COUNT(*), 2) FROM diabetes_working
+UNION ALL
+SELECT 'number_outpatient', SUM(CASE WHEN number_outpatient IS NULL OR number_outpatient = '' OR number_outpatient = '?' THEN 1 ELSE 0 END), COUNT(*), ROUND(100.0 * SUM(CASE WHEN number_outpatient IS NULL OR number_outpatient = '' OR number_outpatient = '?' THEN 1 ELSE 0 END) / COUNT(*), 2) FROM diabetes_working
+UNION ALL
+SELECT 'number_emergency', SUM(CASE WHEN number_emergency IS NULL OR number_emergency = '' OR number_emergency = '?' THEN 1 ELSE 0 END), COUNT(*), ROUND(100.0 * SUM(CASE WHEN number_emergency IS NULL OR number_emergency = '' OR number_emergency = '?' THEN 1 ELSE 0 END) / COUNT(*), 2) FROM diabetes_working
+UNION ALL
+SELECT 'number_inpatient', SUM(CASE WHEN number_inpatient IS NULL OR number_inpatient = '' OR number_inpatient = '?' THEN 1 ELSE 0 END), COUNT(*), ROUND(100.0 * SUM(CASE WHEN number_inpatient IS NULL OR number_inpatient = '' OR number_inpatient = '?' THEN 1 ELSE 0 END) / COUNT(*), 2) FROM diabetes_working
+UNION ALL
+SELECT 'diag_1', SUM(CASE WHEN diag_1 IS NULL OR diag_1 = '' OR diag_1 = '?' THEN 1 ELSE 0 END), COUNT(*), ROUND(100.0 * SUM(CASE WHEN diag_1 IS NULL OR diag_1 = '' OR diag_1 = '?' THEN 1 ELSE 0 END) / COUNT(*), 2) FROM diabetes_working
+UNION ALL
+SELECT 'diag_2', SUM(CASE WHEN diag_2 IS NULL OR diag_2 = '' OR diag_2 = '?' THEN 1 ELSE 0 END), COUNT(*), ROUND(100.0 * SUM(CASE WHEN diag_2 IS NULL OR diag_2 = '' OR diag_2 = '?' THEN 1 ELSE 0 END) / COUNT(*), 2) FROM diabetes_working
+UNION ALL
+SELECT 'diag_3', SUM(CASE WHEN diag_3 IS NULL OR diag_3 = '' OR diag_3 = '?' THEN 1 ELSE 0 END), COUNT(*), ROUND(100.0 * SUM(CASE WHEN diag_3 IS NULL OR diag_3 = '' OR diag_3 = '?' THEN 1 ELSE 0 END) / COUNT(*), 2) FROM diabetes_working
+UNION ALL
+SELECT 'number_diagnoses', SUM(CASE WHEN number_diagnoses IS NULL OR number_diagnoses = '' OR number_diagnoses = '?' THEN 1 ELSE 0 END), COUNT(*), ROUND(100.0 * SUM(CASE WHEN number_diagnoses IS NULL OR number_diagnoses = '' OR number_diagnoses = '?' THEN 1 ELSE 0 END) / COUNT(*), 2) FROM diabetes_working
+UNION ALL
+SELECT 'max_glu_serum', SUM(CASE WHEN max_glu_serum IS NULL OR max_glu_serum = '' OR max_glu_serum = '?' THEN 1 ELSE 0 END), COUNT(*), ROUND(100.0 * SUM(CASE WHEN max_glu_serum IS NULL OR max_glu_serum = '' OR max_glu_serum = '?' THEN 1 ELSE 0 END) / COUNT(*), 2) FROM diabetes_working
+UNION ALL
+SELECT 'A1Cresult', SUM(CASE WHEN A1Cresult IS NULL OR A1Cresult = '' OR A1Cresult = '?' THEN 1 ELSE 0 END), COUNT(*), ROUND(100.0 * SUM(CASE WHEN A1Cresult IS NULL OR A1Cresult = '' OR A1Cresult = '?' THEN 1 ELSE 0 END) / COUNT(*), 2) FROM diabetes_working
+UNION ALL
+SELECT 'metformin', SUM(CASE WHEN metformin IS NULL OR metformin = '' OR metformin = '?' THEN 1 ELSE 0 END), COUNT(*), ROUND(100.0 * SUM(CASE WHEN metformin IS NULL OR metformin = '' OR metformin = '?' THEN 1 ELSE 0 END) / COUNT(*), 2) FROM diabetes_working
+UNION ALL
+SELECT 'repaglinide', SUM(CASE WHEN repaglinide IS NULL OR repaglinide = '' OR repaglinide = '?' THEN 1 ELSE 0 END), COUNT(*), ROUND(100.0 * SUM(CASE WHEN repaglinide IS NULL OR repaglinide = '' OR repaglinide = '?' THEN 1 ELSE 0 END) / COUNT(*), 2) FROM diabetes_working
+UNION ALL
+SELECT 'nateglinide', SUM(CASE WHEN nateglinide IS NULL OR nateglinide = '' OR nateglinide = '?' THEN 1 ELSE 0 END), COUNT(*), ROUND(100.0 * SUM(CASE WHEN nateglinide IS NULL OR nateglinide = '' OR nateglinide = '?' THEN 1 ELSE 0 END) / COUNT(*), 2) FROM diabetes_working
+UNION ALL
+SELECT 'chlorpropamide', SUM(CASE WHEN chlorpropamide IS NULL OR chlorpropamide = '' OR chlorpropamide = '?' THEN 1 ELSE 0 END), COUNT(*), ROUND(100.0 * SUM(CASE WHEN chlorpropamide IS NULL OR chlorpropamide = '' OR chlorpropamide = '?' THEN 1 ELSE 0 END) / COUNT(*), 2) FROM diabetes_working
+UNION ALL
+SELECT 'glimepiride', SUM(CASE WHEN glimepiride IS NULL OR glimepiride = '' OR glimepiride = '?' THEN 1 ELSE 0 END), COUNT(*), ROUND(100.0 * SUM(CASE WHEN glimepiride IS NULL OR glimepiride = '' OR glimepiride = '?' THEN 1 ELSE 0 END) / COUNT(*), 2) FROM diabetes_working
+UNION ALL
+SELECT 'acetohexamide', SUM(CASE WHEN acetohexamide IS NULL OR acetohexamide = '' OR acetohexamide = '?' THEN 1 ELSE 0 END), COUNT(*), ROUND(100.0 * SUM(CASE WHEN acetohexamide IS NULL OR acetohexamide = '' OR acetohexamide = '?' THEN 1 ELSE 0 END) / COUNT(*), 2) FROM diabetes_working
+UNION ALL
+SELECT 'glipizide', SUM(CASE WHEN glipizide IS NULL OR glipizide = '' OR glipizide = '?' THEN 1 ELSE 0 END), COUNT(*), ROUND(100.0 * SUM(CASE WHEN glipizide IS NULL OR glipizide = '' OR glipizide = '?' THEN 1 ELSE 0 END) / COUNT(*), 2) FROM diabetes_working
+UNION ALL
+SELECT 'glyburide', SUM(CASE WHEN glyburide IS NULL OR glyburide = '' OR glyburide = '?' THEN 1 ELSE 0 END), COUNT(*), ROUND(100.0 * SUM(CASE WHEN glyburide IS NULL OR glyburide = '' OR glyburide = '?' THEN 1 ELSE 0 END) / COUNT(*), 2) FROM diabetes_working
+UNION ALL
+SELECT 'tolbutamide', SUM(CASE WHEN tolbutamide IS NULL OR tolbutamide = '' OR tolbutamide = '?' THEN 1 ELSE 0 END), COUNT(*), ROUND(100.0 * SUM(CASE WHEN tolbutamide IS NULL OR tolbutamide = '' OR tolbutamide = '?' THEN 1 ELSE 0 END) / COUNT(*), 2) FROM diabetes_working
+UNION ALL
+SELECT 'pioglitazone', SUM(CASE WHEN pioglitazone IS NULL OR pioglitazone = '' OR pioglitazone = '?' THEN 1 ELSE 0 END), COUNT(*), ROUND(100.0 * SUM(CASE WHEN pioglitazone IS NULL OR pioglitazone = '' OR pioglitazone = '?' THEN 1 ELSE 0 END) / COUNT(*), 2) FROM diabetes_working
+UNION ALL
+SELECT 'rosiglitazone', SUM(CASE WHEN rosiglitazone IS NULL OR rosiglitazone = '' OR rosiglitazone = '?' THEN 1 ELSE 0 END), COUNT(*), ROUND(100.0 * SUM(CASE WHEN rosiglitazone IS NULL OR rosiglitazone = '' OR rosiglitazone = '?' THEN 1 ELSE 0 END) / COUNT(*), 2) FROM diabetes_working
+UNION ALL
+SELECT 'acarbose', SUM(CASE WHEN acarbose IS NULL OR acarbose = '' OR acarbose = '?' THEN 1 ELSE 0 END), COUNT(*), ROUND(100.0 * SUM(CASE WHEN acarbose IS NULL OR acarbose = '' OR acarbose = '?' THEN 1 ELSE 0 END) / COUNT(*), 2) FROM diabetes_working
+UNION ALL
+SELECT 'miglitol', SUM(CASE WHEN miglitol IS NULL OR miglitol = '' OR miglitol = '?' THEN 1 ELSE 0 END), COUNT(*), ROUND(100.0 * SUM(CASE WHEN miglitol IS NULL OR miglitol = '' OR miglitol = '?' THEN 1 ELSE 0 END) / COUNT(*), 2) FROM diabetes_working
+UNION ALL
+SELECT 'troglitazone', SUM(CASE WHEN troglitazone IS NULL OR troglitazone = '' OR troglitazone = '?' THEN 1 ELSE 0 END), COUNT(*), ROUND(100.0 * SUM(CASE WHEN troglitazone IS NULL OR troglitazone = '' OR troglitazone = '?' THEN 1 ELSE 0 END) / COUNT(*), 2) FROM diabetes_working
+UNION ALL
+SELECT 'tolazamide', SUM(CASE WHEN tolazamide IS NULL OR tolazamide = '' OR tolazamide = '?' THEN 1 ELSE 0 END), COUNT(*), ROUND(100.0 * SUM(CASE WHEN tolazamide IS NULL OR tolazamide = '' OR tolazamide = '?' THEN 1 ELSE 0 END) / COUNT(*), 2) FROM diabetes_working
+UNION ALL
+SELECT 'examide', SUM(CASE WHEN examide IS NULL OR examide = '' OR examide = '?' THEN 1 ELSE 0 END), COUNT(*), ROUND(100.0 * SUM(CASE WHEN examide IS NULL OR examide = '' OR examide = '?' THEN 1 ELSE 0 END) / COUNT(*), 2) FROM diabetes_working
+UNION ALL
+SELECT 'citoglipton', SUM(CASE WHEN citoglipton IS NULL OR citoglipton = '' OR citoglipton = '?' THEN 1 ELSE 0 END), COUNT(*), ROUND(100.0 * SUM(CASE WHEN citoglipton IS NULL OR citoglipton = '' OR citoglipton = '?' THEN 1 ELSE 0 END) / COUNT(*), 2) FROM diabetes_working
+UNION ALL
+SELECT 'insulin', SUM(CASE WHEN insulin IS NULL OR insulin = '' OR insulin = '?' THEN 1 ELSE 0 END), COUNT(*), ROUND(100.0 * SUM(CASE WHEN insulin IS NULL OR insulin = '' OR insulin = '?' THEN 1 ELSE 0 END) / COUNT(*), 2) FROM diabetes_working
+UNION ALL
+SELECT 'glyburide-metformin', SUM(CASE WHEN "glyburide-metformin" IS NULL OR "glyburide-metformin" = '' OR "glyburide-metformin" = '?' THEN 1 ELSE 0 END), COUNT(*), ROUND(100.0 * SUM(CASE WHEN "glyburide-metformin" IS NULL OR "glyburide-metformin" = '' OR "glyburide-metformin" = '?' THEN 1 ELSE 0 END) / COUNT(*), 2) FROM diabetes_working
+UNION ALL
+SELECT 'glipizide-metformin', SUM(CASE WHEN "glipizide-metformin" IS NULL OR "glipizide-metformin" = '' OR "glipizide-metformin" = '?' THEN 1 ELSE 0 END), COUNT(*), ROUND(100.0 * SUM(CASE WHEN "glipizide-metformin" IS NULL OR "glipizide-metformin" = '' OR "glipizide-metformin" = '?' THEN 1 ELSE 0 END) / COUNT(*), 2) FROM diabetes_working
+UNION ALL
+SELECT 'glimepiride-pioglitazone', SUM(CASE WHEN "glimepiride-pioglitazone" IS NULL OR "glimepiride-pioglitazone" = '' OR "glimepiride-pioglitazone" = '?' THEN 1 ELSE 0 END), COUNT(*), ROUND(100.0 * SUM(CASE WHEN "glimepiride-pioglitazone" IS NULL OR "glimepiride-pioglitazone" = '' OR "glimepiride-pioglitazone" = '?' THEN 1 ELSE 0 END) / COUNT(*), 2) FROM diabetes_working
+UNION ALL
+SELECT 'metformin-rosiglitazone', SUM(CASE WHEN "metformin-rosiglitazone" IS NULL OR "metformin-rosiglitazone" = '' OR "metformin-rosiglitazone" = '?' THEN 1 ELSE 0 END), COUNT(*), ROUND(100.0 * SUM(CASE WHEN "metformin-rosiglitazone" IS NULL OR "metformin-rosiglitazone" = '' OR "metformin-rosiglitazone" = '?' THEN 1 ELSE 0 END) / COUNT(*), 2) FROM diabetes_working
+UNION ALL
+SELECT 'metformin-pioglitazone', SUM(CASE WHEN "metformin-pioglitazone" IS NULL OR "metformin-pioglitazone" = '' OR "metformin-pioglitazone" = '?' THEN 1 ELSE 0 END), COUNT(*), ROUND(100.0 * SUM(CASE WHEN "metformin-pioglitazone" IS NULL OR "metformin-pioglitazone" = '' OR "metformin-pioglitazone" = '?' THEN 1 ELSE 0 END) / COUNT(*), 2) FROM diabetes_working
+UNION ALL
+SELECT 'change', SUM(CASE WHEN change IS NULL OR change = '' OR change = '?' THEN 1 ELSE 0 END), COUNT(*), ROUND(100.0 * SUM(CASE WHEN change IS NULL OR change = '' OR change = '?' THEN 1 ELSE 0 END) / COUNT(*), 2) FROM diabetes_working
+UNION ALL
+SELECT 'diabetesMed', SUM(CASE WHEN diabetesMed IS NULL OR diabetesMed = '' OR diabetesMed = '?' THEN 1 ELSE 0 END), COUNT(*), ROUND(100.0 * SUM(CASE WHEN diabetesMed IS NULL OR diabetesMed = '' OR diabetesMed = '?' THEN 1 ELSE 0 END) / COUNT(*), 2) FROM diabetes_working
+UNION ALL
+SELECT 'readmitted', SUM(CASE WHEN readmitted IS NULL OR readmitted = '' OR readmitted = '?' THEN 1 ELSE 0 END), COUNT(*), ROUND(100.0 * SUM(CASE WHEN readmitted IS NULL OR readmitted = '' OR readmitted = '?' THEN 1 ELSE 0 END) / COUNT(*), 2) FROM diabetes_working
+ORDER BY missing_count DESC;
+
+
+
+
+
+

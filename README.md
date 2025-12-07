@@ -1,18 +1,11 @@
-# :rocket: Weathers Tech Portolio
-Technical project showcase covering advanced Data Analysis, ML modeling, and practical applications in IT, and systems automation.
+This README is still under construction, additional information will be added later. 
 
-This repository showcases projects integrating Data Engineering (Python/ML/Analysis) with IT Elements. Focused on building scalable solutions from source system to final insight.
+Overview - These are screenshots captured while completing a school assignment where I was instructed to create a model to predict diabetes using this dataset. 
 
-## 📖 Table of Contents
+This branch consists of screenshots that outline the data cleaning and transformation process using SQL before creation of a random forest and logistic regression model. Both models fail, as this dataset fails to capture clinical relevance to diabetes diagnosis. 
 
-1. **🖥️IT & Systems Administration**
-   * [Windows 10 Pro Local Admin and Hardening Project](https://github.com/addaweathers/weathers-tech-portfolio/tree/Windows-10-Pro-Local-Admin-and-Hardening-Project)
+However, this assignment presented an invaluable opportunity to practice data analysis techniques. 
 
-2. **📊Data Analysis & Visualization**
-   * [RapidMiner Decision Tree Project](https://github.com/addaweathers/weathers-tech-portfolio/tree/RapidMiner-Decision-Tree)
-   * 🛠️ SQL Data Cleaning & Transformation + Logistic Regression Model -- COMING SOON
 
-4. **🧠Machine Learning**
-   * [Spam E-Mail Detector Using XGBoost](https://github.com/addaweathers/weathers-tech-portfolio/tree/Spam-Email-Detector-XGBoost)
 
 
