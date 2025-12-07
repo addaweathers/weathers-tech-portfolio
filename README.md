@@ -10,7 +10,7 @@ This repository showcases projects integrating Data Engineering (Python/ML/Analy
 
 2. **📊Data Analysis & Visualization**
    * [RapidMiner Decision Tree Project](https://github.com/addaweathers/weathers-tech-portfolio/tree/RapidMiner-Decision-Tree)
-   * 🛠️ SQL Data Cleaning & Transformation + Logistic Regression Model -- COMING SOON
+   * 🛠️ [SQL Data Cleaning & Transformation + Logistic Regression Model](https://github.com/addaweathers/weathers-tech-portfolio/tree/SQL-and-RapidMiner-for-Diabetes-Prediction) -- IN PROGRESS
 
 4. **🧠Machine Learning**
    * [Spam E-Mail Detector Using XGBoost](https://github.com/addaweathers/weathers-tech-portfolio/tree/Spam-Email-Detector-XGBoost)
