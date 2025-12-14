@@ -14,5 +14,5 @@ This repository showcases projects integrating Data Engineering (Python/ML/Analy
 
 4. **🧠Machine Learning**
    * [Spam E-Mail Detector Using XGBoost](https://github.com/addaweathers/weathers-tech-portfolio/tree/Spam-Email-Detector-XGBoost)
-
+   * [Production-Ready Spam Email Classification API](https://github.com/addaweathers/weathers-tech-portfolio/blob/Production-Ready-Spam-Email-Classification-API)
 
