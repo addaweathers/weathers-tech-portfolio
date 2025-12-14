@@ -1,0 +1,332 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Spam Email Checker</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            min-height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            padding: 20px;
+        }
+
+        .container {
+            background: white;
+            border-radius: 20px;
+            box-shadow: 0 20px 60px rgba(0,0,0,0.3);
+            padding: 40px;
+            max-width: 800px;
+            width: 100%;
+        }
+
+        h1 {
+            color: #333;
+            margin-bottom: 10px;
+            text-align: center;
+        }
+
+        .subtitle {
+            color: #666;
+            text-align: center;
+            margin-bottom: 30px;
+        }
+
+        label {
+            display: block;
+            color: #333;
+            font-weight: 600;
+            margin-bottom: 10px;
+        }
+
+        textarea {
+            width: 100%;
+            min-height: 200px;
+            padding: 15px;
+            border: 2px solid #e0e0e0;
+            border-radius: 10px;
+            font-size: 16px;
+            font-family: inherit;
+            resize: vertical;
+            transition: border-color 0.3s;
+        }
+
+        textarea:focus {
+            outline: none;
+            border-color: #667eea;
+        }
+
+        button {
+            width: 100%;
+            padding: 15px;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            border: none;
+            border-radius: 10px;
+            font-size: 18px;
+            font-weight: 600;
+            cursor: pointer;
+            margin-top: 20px;
+            transition: transform 0.2s, box-shadow 0.2s;
+        }
+
+        button:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 5px 20px rgba(102, 126, 234, 0.4);
+        }
+
+        button:active {
+            transform: translateY(0);
+        }
+
+        button:disabled {
+            opacity: 0.6;
+            cursor: not-allowed;
+        }
+
+        .result {
+            margin-top: 30px;
+            padding: 25px;
+            border-radius: 10px;
+            display: none;
+        }
+
+        .result.spam {
+            background: #fee;
+            border: 2px solid #f88;
+        }
+
+        .result.ham {
+            background: #efe;
+            border: 2px solid #8f8;
+        }
+
+        .result h2 {
+            margin-bottom: 15px;
+        }
+
+        .result.spam h2 {
+            color: #c33;
+        }
+
+        .result.ham h2 {
+            color: #3c3;
+        }
+
+        .details {
+            background: white;
+            padding: 15px;
+            border-radius: 8px;
+            margin-top: 15px;
+        }
+
+        .detail-row {
+            display: flex;
+            justify-content: space-between;
+            padding: 8px 0;
+            border-bottom: 1px solid #eee;
+        }
+
+        .detail-row:last-child {
+            border-bottom: none;
+        }
+
+        .detail-label {
+            font-weight: 600;
+            color: #555;
+        }
+
+        .detail-value {
+            color: #333;
+        }
+
+        .error {
+            background: #fee;
+            color: #c33;
+            padding: 15px;
+            border-radius: 10px;
+            margin-top: 20px;
+            display: none;
+        }
+
+        .loading {
+            text-align: center;
+            color: #667eea;
+            margin-top: 20px;
+            display: none;
+        }
+
+        .examples {
+            margin-top: 20px;
+            padding: 15px;
+            background: #f9f9f9;
+            border-radius: 10px;
+        }
+
+        .examples h3 {
+            color: #333;
+            margin-bottom: 10px;
+            font-size: 16px;
+        }
+
+        .example-btn {
+            display: inline-block;
+            padding: 8px 15px;
+            margin: 5px;
+            background: #e0e0e0;
+            color: #333;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 14px;
+            transition: background 0.2s;
+        }
+
+        .example-btn:hover {
+            background: #d0d0d0;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>🛡️ Spam Email Detector</h1>
+        <p class="subtitle">Paste any email text below to check if it's spam</p>
+
+        <div class="examples">
+            <h3>Try these examples:</h3>
+            <span class="example-btn" onclick="loadExample('spam')">Spam Example</span>
+            <span class="example-btn" onclick="loadExample('ham')">Legitimate Example</span>
+        </div>
+
+        <form id="emailForm">
+            <label for="emailText">Email Text:</label>
+            <textarea
+                id="emailText"
+                placeholder="Paste your email content here..."
+                required
+            ></textarea>
+
+            <button type="submit">Check Email</button>
+        </form>
+
+        <div class="loading" id="loading">
+            <p>🔍 Analyzing email...</p>
+        </div>
+
+        <div class="error" id="error"></div>
+
+        <div class="result" id="result">
+            <h2 id="resultTitle"></h2>
+            <p id="resultText"></p>
+
+            <div class="details">
+                <div class="detail-row">
+                    <span class="detail-label">Spam Probability:</span>
+                    <span class="detail-value" id="spamProb"></span>
+                </div>
+                <div class="detail-row">
+                    <span class="detail-label">Confidence:</span>
+                    <span class="detail-value" id="confidence"></span>
+                </div>
+                <div class="detail-row">
+                    <span class="detail-label">Exclamation Marks:</span>
+                    <span class="detail-value" id="exclamation"></span>
+                </div>
+                <div class="detail-row">
+                    <span class="detail-label">Question Marks:</span>
+                    <span class="detail-value" id="question"></span>
+                </div>
+                <div class="detail-row">
+                    <span class="detail-label">Spam Keywords:</span>
+                    <span class="detail-value" id="flagged"></span>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        const API_URL = 'http://localhost:8000/predict';
+
+        const examples = {
+            spam: "CONGRATULATIONS!!! You've won $1,000,000 in our lottery! Click here NOW to claim your prize! This is a LIMITED TIME offer! ACT FAST! Free money guaranteed! Don't miss out on this AMAZING opportunity!",
+            ham: "Hi Team, I hope this email finds you well. I wanted to follow up on our meeting from yesterday and confirm the action items we discussed. Please let me know if you have any questions. Looking forward to hearing from you. Best regards"
+        };
+
+        function loadExample(type) {
+            document.getElementById('emailText').value = examples[type];
+        }
+
+        document.getElementById('emailForm').addEventListener('submit', async (e) => {
+            e.preventDefault();
+
+            const emailText = document.getElementById('emailText').value;
+            const loading = document.getElementById('loading');
+            const error = document.getElementById('error');
+            const result = document.getElementById('result');
+            const button = document.querySelector('button[type="submit"]');
+
+            // Reset displays
+            loading.style.display = 'block';
+            error.style.display = 'none';
+            result.style.display = 'none';
+            button.disabled = true;
+
+            try {
+                const response = await fetch(API_URL, {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/json',
+                    },
+                    body: JSON.stringify({ text: emailText })
+                });
+
+                if (!response.ok) {
+                    throw new Error(`API error: ${response.status}`);
+                }
+
+                const data = await response.json();
+
+                // Display result
+                loading.style.display = 'none';
+                result.style.display = 'block';
+
+                if (data.is_spam) {
+                    result.className = 'result spam';
+                    document.getElementById('resultTitle').textContent = '⚠️ This looks like SPAM!';
+                    document.getElementById('resultText').textContent = 'This email contains characteristics commonly found in spam messages.';
+                } else {
+                    result.className = 'result ham';
+                    document.getElementById('resultTitle').textContent = '✅ This looks legitimate!';
+                    document.getElementById('resultText').textContent = 'This email appears to be a legitimate message.';
+                }
+
+                // Fill in details
+                document.getElementById('spamProb').textContent = (data.spam_probability * 100).toFixed(1) + '%';
+                document.getElementById('confidence').textContent = (data.confidence * 100).toFixed(1) + '%';
+
+                if (data.features) {
+                    document.getElementById('exclamation').textContent = data.features.exclamation_marks;
+                    document.getElementById('question').textContent = data.features.question_marks;
+                    document.getElementById('flagged').textContent = data.features.flagged_words;
+                }
+
+            } catch (err) {
+                loading.style.display = 'none';
+                error.style.display = 'block';
+                error.textContent = `Error: ${err.message}. Make sure your API server is running on http://localhost:8000`;
+            } finally {
+                button.disabled = false;
+            }
+        });
+    </script>
+</body>
+</html>
