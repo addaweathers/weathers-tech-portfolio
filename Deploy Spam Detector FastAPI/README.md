@@ -43,7 +43,7 @@ This API deployment project is built on top of my spam E-mail Detector Using XGB
 
 1. Clone the repository:
 ```bash
-git clone [your-repo-url]
+git clone
 cd FastAPI
 ```
 
