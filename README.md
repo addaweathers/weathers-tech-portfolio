@@ -1,4 +1,7 @@
-# :rocket: Weathers Tech Portolio
+# :rocket: Weathers Tech Portolio 
+![Static Badge](https://img.shields.io/badge/python-green) ![Static Badge](https://img.shields.io/badge/fastapi-purple) ![Static Badge](https://img.shields.io/badge/HTML5-blue) ![Static Badge](https://img.shields.io/badge/Machine%20Learning-gray) ![Static Badge](https://img.shields.io/badge/Data%20Manipulation-white) 
+
+
 I build intelligent applications and the secure, scalable systems that power them. My work spans from FastAPI-driven Machine Learning deployment to Systems Engineering and Infrastructure hardening.
 
 Core Expertise:
