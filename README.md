@@ -6,7 +6,7 @@ A machine learning-powered REST API that classifies emails as spam or legitimate
 
 This API deployment project is built on top of my spam E-mail Detector Using XGBoost machine learning model.  It demonstrates:
 - **Model Deployment** from Jupyter notebooks to production API
-- **XGBoost classifier** trained on 5,728 emails with 95%+ accuracy
+- **XGBoost classifier** trained on 5,728 emails with 97% accuracy
 - **TF-IDF vectorization** for text feature extraction
 - **K-Means clustering** for enhanced pattern recognition
 - **FastAPI** for high-performance REST API
