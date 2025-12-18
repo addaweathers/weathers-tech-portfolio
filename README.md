@@ -1,27 +1,27 @@
-Goal: To develop and evaluate a Decision Tree classification model using RapidMiner to predict the presence or absence of heart disease based on patient clinical features.
+# 🫀💔 Heart Disease Predictive Modeling
 
----
+**Project Overview**
 
-Data Source & URL: Heart Disease Dataset from Kaggle -- https://www.kaggle.com/datasets/johnsmith88/heart-disease-dataset
+Developed a Decision Tree classification system to predict cardiovascular pathology based on clinical patient features. This project demonstrates the end-to-end ML workflow: from exploratory data analysis (EDA) and data cleaning to model evaluation and optimization strategies.
 
-The dataset contains 303 patient records and 14 features. 
+## Technical Methodology
 
----
+**Problem Space:** Binomial Classification (Presence vs. Absence of Heart Disease)
 
-Methodology: I chose a Decision Tree for the following reasons. 
+**Model Selection:** Utilized a Decision Tree architecture to capture non-linear relationships and feature dependencies common in clinical datasets, providing better performance than independence-based models like Naive Bayes.
 
-	1. Decision Trees work for classification problems. The presence or absence of heart disease is a binomial classification problem. 
+**Data Engineering & Pre-processing:**
+* Data Integrity: Performed targeted outlier and null-value handling by identifying non-standard missing values in the ca and thal features.
+* Feature Selection: Conducted EDA to identify feature distributions (e.g., median age ≈55) and correlations (Resting BP vs. Serum Cholesterol).
 
-	2. It is not uncommon for relationships to exist within health data. A Naive Bayes model, for example, assumes no relationship between variables 		 and may not work as effectively. 
+**Pipeline Design:** Implemented a 70/30 train-test split to ensure model generalizability and prevent overfitting.
 
-To pre-process the data, missing values were removed. 4 in the "ca" column and 0 in the "thal" column as missing, since typical values are 0-3 for "ca" and 1-3 for "thal." 
+# Scalability & Future Engineering
 
-EDA revealed that the patient population was slightly older (median age ≈55), and a weak positive correlation exists between resting blood pressure and serum cholesterol. This EDA informed feature selection and the understanding of the raw data distribution.
+To transition this from a prototype to a production-grade system, the following architectural improvements are proposed:
 
-The data was split into 70% training data and 30% testing sets. The model was scored using Classification Accuracy and a Confusion Matrix. 
+**Feature Engineering:** Programmatic creation of interaction terms (e.g., Age×MaxHeartRate) to uncover deeper signal.
 
----
+**Ensemble Methods:** Implementation of Random Forests or Gradient Boosting (XGBoost) to reduce variance and improve Precision.
 
-Model and Insights: The model achieved an overall Accuracy of 93%. However, the Precision of 89% indicates a need for caution, as a higher number of False Positives means the model would incorrectly diagnose a healthy patient with heart disease.
-
-Future steps to improve Precision would include implementing Feature Engineering (e.g., creating interaction terms like Age × Max Heart Rate) and exploring more complex ensemble methods like Random Forests or Gradient Boosting.
+**Deployment:** Wrapping the final model in a FastAPI service (as seen in my other projects) for real-time clinical decision support.
