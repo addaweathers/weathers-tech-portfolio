@@ -5,6 +5,8 @@
 
 I build intelligent applications and the secure, scalable systems that power them. My work spans from FastAPI-driven Machine Learning deployment to Systems Engineering and Infrastructure hardening.
 
+## 👷‍♀️ **Coming soon:** Adda-Bot Interactive Agent (HuggingFace) 
+
 Core Expertise:
 
   **Backend & ML:**
