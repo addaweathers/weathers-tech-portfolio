@@ -1,65 +1,74 @@
 # 🛡️ Spam Email Detector API
 
-A machine learning-powered REST API that classifies emails as spam or legitimate using XGBoost and Natural Language Processing.
+A machine learning-powered REST API that classifies emails as spam or legitimate using XGBoost, Natural Language Processing, and **Docker containerization**.
 
 ## 🎯 Project Overview
 
-This API deployment project is built on top of my spam E-mail Detector Using XGBoost machine learning model.  It demonstrates:
-- **Model Deployment** from Jupyter notebooks to production API
-- **XGBoost classifier** trained on 5,728 emails with 95%+ accuracy
-- **TF-IDF vectorization** for text feature extraction
-- **K-Means clustering** for enhanced pattern recognition
-- **FastAPI** for high-performance REST API
-- **Interactive web interface** for non-technical users
+This project demonstrates the transition of a Machine Learning model from a research environment (Jupyter) to a production-ready application.
+- **Model Deployment**: High-performance FastAPI backend.
+- **Containerization**: Packaged with **Docker** for consistent environment behavior across any machine.
+- **XGBoost Classifier**: Trained on 5,728 emails with 95%+ accuracy.
+- **Enhanced NLP**: Integrates TF-IDF vectorization and K-Means clustering to improve prediction confidence.
 
 ## 🚀 Features
 
-- Real-time spam detection with confidence scores
-- Batch processing support for multiple emails
-- Feature analysis (exclamation marks, spam keywords, etc.)
-- RESTful API with automatic documentation
-- User-friendly web interface
-- 95%+ accuracy on test data
+- **Integrated Web UI**: A user-friendly dashboard served directly at the root (`/`) path.
+- **Real-time Prediction**: Instant classification with probability scores.
+- **Batch Processing**: Support for analyzing up to 100 emails in a single request.
+- **Advanced Feature Engineering**: Analysis of exclamation marks, question marks, flagged keywords, and text length.
+- **Automatic Documentation**: Interactive Swagger UI available at `/docs`.
 
 ## 📊 Model Performance
 
 - **Algorithm**: XGBoost Classifier
-- **Features**: 1,005 total
-  - 1,000 TF-IDF features
-  - 3 text-based features
-  - 2 cluster features
+- **Total Features**: 1,005
+  - 1,000 TF-IDF word importance features
+  - 3 text-based engineered features
+  - 2 K-Means cluster assignment features
 - **Training Data**: 5,728 emails
-- **Accuracy**: 95%
+- **Accuracy**: 95%+
 
 ## 🛠️ Technology Stack
 
 - **Backend**: FastAPI, Python 3.12
-- **ML Libraries**: scikit-learn, XGBoost
-- **NLP**: TF-IDF Vectorization
-- **Deployment**: Uvicorn ASGI server
-- **Frontend**: Vanilla JavaScript, HTML5, CSS3
+- **ML/NLP**: scikit-learn, XGBoost, Joblib
+- **Deployment**: Docker, Uvicorn
+- **Frontend**: HTML5, CSS3, Vanilla JavaScript
 
-## 📦 Installation
+---
+
+## 📦 Deployment with Docker (Recommended)
+
+This is the standard way to run the API. It handles all dependencies, including the Python version and model libraries, automatically.
+```bash
+docker build -t spam-detector:v1 .
 
 1. Clone the repository:
 ```bash
 git clone
 cd FastAPI
+
+2. Run the Container:
+docker run -d -p 8000:8000 --name spam-app spam-detector:v1
+
+3. Access the App:
+Web Interface: http://localhost:8000
 ```
 
-2. Create and activate virtual environment:
+## 🛠️ Manual Installation (Local Development)
 ```bash
+1. Clone the Repository:
+git clone [https://github.com/addaweathers/weathers-tech-portfolio.git](https://github.com/addaweathers/weathers-tech-portfolio.git)
+cd "Deploy Spam Detector FastAPI"
+
+2. Create and Activate Virtual Environment:
 python -m venv .venv
 source .venv/bin/activate  # On Windows: .venv\Scripts\activate
-```
 
-3. Install dependencies:
-```bash
+3. Install Dependencies:
 pip install -r requirements.txt
-```
 
 4. Run the server:
-```bash
 python main.py
 ```
 
@@ -123,16 +132,18 @@ python test_api.py
 
 ## 📁 Project Structure
 
-```
-FastAPI/
-├── main.py                                    # FastAPI application
-├── spam_checker.html                          # Web interface
-├── requirements.txt                           # Python dependencies
-├── test_api.py                               # API tests
-├── optimized_spam_detector_xgb_model.joblib  # Trained model
-├── tfidf_vectorizer.joblib                   # Text vectorizer
-├── cluster_model.joblib                      # Clustering model
-└── README.md                                 # Documentation
+```text
+Deploy Spam Detector FastAPI/
+├── main.py                # FastAPI application & HTML routing
+├── spam_checker.html      # Interactive Web Interface (HTML/JS)
+├── Dockerfile             # Container build recipe
+├── .dockerignore          # Optimization: Excludes unnecessary files from build
+├── requirements.txt       # Python library dependencies
+├── test_api.py            # Automated API test suite
+├── optimized_spam_detector_xgb_model.joblib  # Trained XGBoost model
+├── tfidf_vectorizer.joblib # TF-IDF NLP model
+├── cluster_model.joblib    # K-Means clustering model
+└── README.md              # Project documentation
 ```
 
 ## 🔍 Feature Engineering
