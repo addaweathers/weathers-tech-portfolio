@@ -135,10 +135,19 @@ class PredictionResponse(BaseModel):
 class BatchPredictionResponse(BaseModel):
     predictions: List[PredictionResponse]
 
+# Adding this in -- HTML
+@app.get("/", response_class=HTMLResponse)
+async def read_index():
+    try:
+        with open("spam_checker.html", "r") as f:
+            return f.read()
+    except FileNotFoundError:
+        return "<h1>Error: spam_checker.html not found.</h1>"
+
 
 # Health check endpoint
-@app.get("/")
-def read_root():
+@app.get("/status")
+def get_api_status():
     return {
         "message": "Spam Email Detector API is running",
         "status": "healthy" if model and vectorizer else "error",
@@ -250,16 +259,9 @@ def get_model_info():
 
     return info
 
-# Adding before univorn block
-@app.get("/", response_class=HTMLResponse)
-async def read_index():
-    try:
-        with open("spam_checker.html", "r") as f:
-            return f.read()
-    except FileNotFoundError:
-        return "<h1>Error: spam_checker.html not found.</h1>"
 
 if __name__ == "__main__":
     import uvicorn
 
     uvicorn.run(app, host="0.0.0.0", port=8000)
+
