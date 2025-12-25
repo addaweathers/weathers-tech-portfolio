@@ -5,7 +5,12 @@
 
 I build intelligent applications and the secure, scalable systems that power them. My work spans from FastAPI-driven Machine Learning deployment to Systems Engineering and Infrastructure hardening.
 
-## 👷‍♀️ **Coming soon:** Adda-Bot Interactive Agent (HuggingFace) 
+## 🤖🐈‍⬛🖤 Meet Adda-Bot: My Interactive Portfolio Assistant
+
+Have questions about my skills or specific projects? > I built a custom AI agent to help you navigate my work. Ask Adda-Bot about my experience with FastAPI, my security projects, or my approach to ML.
+
+👉 [Chat with Adda-Bot on HuggingFace](https://huggingface.co/spaces/addaweathers/Adda-Bot)
+
 
 Core Expertise:
 
