@@ -6,6 +6,8 @@ import numpy as np
 import pandas as pd
 from typing import List
 import re
+# Easier to work with HTML file
+from fastapi.responses import HTMLResponse
 
 # Initialize FastAPI app
 app = FastAPI(
@@ -248,6 +250,14 @@ def get_model_info():
 
     return info
 
+# Adding before univorn block
+@app.get("/", response_class=HTMLResponse)
+async def read_index():
+    try:
+        with open("spam_checker.html", "r") as f:
+            return f.read()
+    except FileNotFoundError:
+        return "<h1>Error: spam_checker.html not found.</h1>"
 
 if __name__ == "__main__":
     import uvicorn
