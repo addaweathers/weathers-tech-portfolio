@@ -1,6 +1,6 @@
 # :rocket: Weathers Tech Portolio 
-![Static Badge](https://img.shields.io/badge/Python-green) ![Static Badge](https://img.shields.io/badge/SQL-magenta)
- ![Static Badge](https://img.shields.io/badge/FastAPI-purple) ![Static Badge](https://img.shields.io/badge/HTML5-blue) ![Static Badge](https://img.shields.io/badge/Machine%20Learning-gray) ![Static Badge](https://img.shields.io/badge/Data%20Manipulation-white) 
+![Docker](https://img.shields.io/badge/Docker-%230db7ed.svg?style=for-the-badge&logo=docker&logoColor=white) ![Python](https://img.shields.io/badge/python-3670A0?style=for-the-badge&logo=python&logoColor=ffdd54) ![SQL](https://img.shields.io/badge/sql-%2300758f.svg?style=for-the-badge&logo=mysql&logoColor=white) ![AI](https://img.shields.io/badge/Artificial_Intelligence-FF6F00?style=for-the-badge&logo=ai&logoColor=white) ![ML](https://img.shields.io/badge/Machine_Learning-3F51B5?style=for-the-badge&logo=machine-learning&logoColor=white)
+![FastAPI](https://img.shields.io/badge/FastAPI-005571?style=for-the-badge&logo=fastapi) ![HTML5](https://img.shields.io/badge/html5-%23E34F26.svg?style=for-the-badge&logo=html5&logoColor=white)
 
 
 I build intelligent applications and the secure, scalable systems that power them. My work spans from FastAPI-driven Machine Learning deployment to Systems Engineering and Infrastructure hardening.
