@@ -27,7 +27,7 @@ Core Expertise:
 
 1. **🧠Machine Learning**
    * [Spam E-Mail Detector Using XGBoost](https://github.com/addaweathers/weathers-tech-portfolio/tree/Spam-Email-Detector-XGBoost)
-   * [Production-Ready Spam Email Classification API](https://github.com/addaweathers/weathers-tech-portfolio/blob/Production-Ready-Spam-Email-Classification-API)
+   * [Dockerized Spam Email Classification API](https://github.com/addaweathers/weathers-tech-portfolio/blob/Production-Ready-Spam-Email-Classification-API)
 
 2. **📊Data Analysis & Visualization**
    * [RapidMiner Decision Tree Project](https://github.com/addaweathers/weathers-tech-portfolio/tree/RapidMiner-Decision-Tree)
