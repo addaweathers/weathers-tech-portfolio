@@ -11,6 +11,8 @@ Have questions about my skills or specific projects? > I built a custom AI agent
 
 👉 [Chat with Adda-Bot on HuggingFace](https://huggingface.co/spaces/addaweathers/Adda-Bot)
 
+_Note: Adda-Bot is best viewed on Desktop. Updates to come._
+
 
 Core Expertise:
 
