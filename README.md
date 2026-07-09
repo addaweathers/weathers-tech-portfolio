@@ -9,7 +9,7 @@ I build intelligent applications and the secure, scalable systems that power the
 
 Have questions about my skills or specific projects? > I built a custom AI agent to help you navigate my work. Ask Adda-Bot about my experience with FastAPI, my security projects, or my approach to ML.
 
-👉 [Chat with Adda-Bot in Google AI Studio](https://aistudio.google.com/apps/67db9643-e3b5-4015-8434-0617c87bcd9d?fullscreenApplet=true&showPreview=true&showAssistant=true)
+👉 [Chat with Adda-Bot in Google AI Studio](https://adda-bot-97484021984.us-east1.run.app)
 
 _Note: Adda-Bot is best viewed on Desktop._
 
